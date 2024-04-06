@@ -11,16 +11,18 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 public class Main {
     public static void main(String[] args) throws Exception {
         // Erstellen einer Liste von Command-Objekten
-        ArrayList<CreateSchemaCommand> commands = new ArrayList<>();
+    	CommandList s = new CommandList();
+    	
+        List<Command> commands = s.getPeople();
         commands.add(new CreateSchemaCommand());
-        // commands.add(new DropSchemaCommand());
+        commands.add(new DropSchemaCommand());
 
         // Erstellen eines XML-Mappers
         XmlMapper xmlMapper = new XmlMapper();
         xmlMapper.enable(SerializationFeature.INDENT_OUTPUT);
 
         // Die Liste in eine XML-Datei serialisieren
-        var s = xmlMapper.writeValueAsString(commands);
-        System.out.println(s);
+        var s2 = xmlMapper.writeValueAsString(s);
+        System.out.println(s2);
     }
 }

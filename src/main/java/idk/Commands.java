@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS )
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME)
 @JsonSubTypes({ 
       @Type(value = CreateSchemaCommand.class, name = "CreateSchema"), 
       @Type(value = DropSchemaCommand.class, name = "DropSchema") 
